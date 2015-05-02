@@ -35,104 +35,80 @@ class BeetleMask
   end
 
   def move_up(row, column)
-    if move_up?(row, column)
-      @board[row][column] = 'O'
-      @board[row - 2][column] = 'O'
-      @board[row - 4][column] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_up?(row, column)
+    @board[row][column] = 'O'
+    @board[row - 2][column] = 'O'
+    @board[row - 4][column] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_down(row, column)
-    if move_down?(row, column)
-      @board[row][column] = 'O'
-      @board[row + 2][column] = 'O'
-      @board[row + 4][column] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_down?(row, column)
+    @board[row][column] = 'O'
+    @board[row + 2][column] = 'O'
+    @board[row + 4][column] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_left(row, column)
-    if move_left?(row, column)
-      @board[row][column] = 'O'
-      @board[row][column - 2] = 'O'
-      @board[row][column - 4] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_left?(row, column)
+    @board[row][column] = 'O'
+    @board[row][column - 2] = 'O'
+    @board[row][column - 4] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_right(row, column)
-    if move_right?(row, column)
-      @board[row][column] = 'O'
-      @board[row][column + 2] = 'O'
-      @board[row][column + 4] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_right?(row, column)
+    @board[row][column] = 'O'
+    @board[row][column + 2] = 'O'
+    @board[row][column + 4] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_up_left(row, column)
-    if move_up_left?(row, column)
-      @board[row][column] = 'O'
-      @board[row - 1][column - 1] = 'O'
-      @board[row - 2][column - 2] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_up_left?(row, column)
+    @board[row][column] = 'O'
+    @board[row - 1][column - 1] = 'O'
+    @board[row - 2][column - 2] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_up_right(row, column)
-    if move_up_right?(row, column)
-      @board[row][column] = 'O'
-      @board[row - 1][column + 1] = 'O'
-      @board[row - 2][column + 2] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_up_right?(row, column)
+    @board[row][column] = 'O'
+    @board[row - 1][column + 1] = 'O'
+    @board[row - 2][column + 2] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_down_left(row, column)
-    if move_down_left?(row, column)
-      @board[row][column] = 'O'
-      @board[row + 1][column - 1] = 'O'
-      @board[row + 2][column - 2] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_down_left?(row, column)
+    @board[row][column] = 'O'
+    @board[row + 1][column - 1] = 'O'
+    @board[row + 2][column - 2] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
   end
 
   def move_down_right(row, column)
-    if move_down_right?(row, column)
-      @board[row][column] = 'O'
-      @board[row + 1][column + 1] = 'O'
-      @board[row + 2][column + 2] = 'X'
-    else
-      raise "Tried to #{__method__} at #{row}, #{column}"
-    end
+    raise "Cannot #{__method__} from #{row}, #{column}" unless move_down_right?(row, column)
+    @board[row][column] = 'O'
+    @board[row + 1][column + 1] = 'O'
+    @board[row + 2][column + 2] = 'X'
     @history << [__method__, row, column]
     visualize if @visual
     self
