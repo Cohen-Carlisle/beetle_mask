@@ -18,17 +18,17 @@ def solve_recursive(beetle_mask, solutions)
 end
 
 class BeetleMask
-  def initialize(board="X_X_X\n_X_X_\nX_O_X\n_X_X_\nX_X_X", visual=true)
+  def initialize(visual=true, board="X_X_X\n_X_X_\nX_O_X\n_X_X_\nX_X_X")
     @board = board.split("\n")
     @row_count = @board.length
     @column_count = @board.length
     @history = []
-    @visualize = visual
-    visualize if @visualize
+    @visual = visual
+    visualize if @visual
   end
 
   attr_reader :history
-  attr_accessor :visualize
+  attr_accessor :visual
 
   def visualize
     puts @board
@@ -43,7 +43,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -56,7 +56,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -69,7 +69,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -82,7 +82,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -95,7 +95,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -108,7 +108,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -121,7 +121,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -134,7 +134,7 @@ class BeetleMask
       raise "Tried to #{__method__} at #{row}, #{column}"
     end
     @history << [__method__, row, column]
-    visualize if @visualize
+    visualize if @visual
     self
   end
 
@@ -226,7 +226,7 @@ class BeetleMask
   end
 
   def deep_copy
-    dc = self.class.new(@board.join("\n"), @visualize)
+    dc = self.class.new(@visual, @board.join("\n"))
     dc.instance_variable_set(:@history, self.history.map(&:dup))
     dc
   end
