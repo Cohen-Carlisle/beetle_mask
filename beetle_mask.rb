@@ -118,7 +118,7 @@ class BeetleMask
     if row - 4 < 0
       false
     else
-      @board[row - 2][column] == 'X' && @board[row - 4][column] == 'O'
+      @board[row][column] == 'X' && @board[row - 2][column] == 'X' && @board[row - 4][column] == 'O'
     end
   end
 
@@ -126,7 +126,7 @@ class BeetleMask
     if row + 4 >= @row_count
       false
     else
-      @board[row + 2][column] == 'X' && @board[row + 4][column] == 'O'
+      @board[row][column] == 'X' && @board[row + 2][column] == 'X' && @board[row + 4][column] == 'O'
     end
   end
 
@@ -134,7 +134,7 @@ class BeetleMask
     if column - 4 < 0
       false
     else
-      @board[row][column - 2] == 'X' && @board[row][column - 4] == 'O'
+      @board[row][column] == 'X' && @board[row][column - 2] == 'X' && @board[row][column - 4] == 'O'
     end
   end
 
@@ -142,7 +142,7 @@ class BeetleMask
     if column + 4 >= @column_count
       false
     else
-      @board[row][column + 2] == 'X' && @board[row][column + 4] == 'O'
+      @board[row][column] == 'X' && @board[row][column + 2] == 'X' && @board[row][column + 4] == 'O'
     end
   end
 
@@ -150,7 +150,7 @@ class BeetleMask
     if row - 2 < 0 || column - 2 < 0
       false
     else
-      @board[row - 1][column - 1] == 'X' && @board[row - 2][column - 2] == 'O'
+      @board[row][column] == 'X' && @board[row - 1][column - 1] == 'X' && @board[row - 2][column - 2] == 'O'
     end
   end
 
@@ -158,7 +158,7 @@ class BeetleMask
     if row - 2 < 0 || column + 2 >= @column_count
       false
     else
-      @board[row - 1][column + 1] == 'X' && @board[row - 2][column + 2] == 'O'
+      @board[row][column] == 'X' && @board[row - 1][column + 1] == 'X' && @board[row - 2][column + 2] == 'O'
     end
   end
 
@@ -166,7 +166,7 @@ class BeetleMask
     if row + 2 >= @row_count || column - 2 < 0
       false
     else
-      @board[row + 1][column - 1] == 'X' && @board[row + 2][column - 2] == 'O'
+      @board[row][column] == 'X' && @board[row + 1][column - 1] == 'X' && @board[row + 2][column - 2] == 'O'
     end
   end
 
@@ -174,7 +174,7 @@ class BeetleMask
     if row + 2 >= @row_count || column + 2 >= @column_count
       false
     else
-      @board[row + 1][column + 1] == 'X' && @board[row + 2][column + 2] == 'O'
+      @board[row][column] == 'X' && @board[row + 1][column + 1] == 'X' && @board[row + 2][column + 2] == 'O'
     end
   end
 
